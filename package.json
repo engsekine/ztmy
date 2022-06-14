@@ -1,0 +1,13 @@
+{
+  "name": "ztmy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/engsekine/ztmy.git",
+  "author": "engsekine <engsekine@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.52.3"
+  }
+}
