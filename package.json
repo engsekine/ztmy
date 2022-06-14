@@ -5,9 +5,11 @@
   "repository": "https://github.com/engsekine/ztmy.git",
   "author": "engsekine <engsekine@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.52.3"
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1"
   }
 }
