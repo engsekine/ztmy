@@ -1,0 +1,112 @@
+@charset "utf-8";
+//ブレイクポイント設定
+$max-lg: 1200px; // PC
+$max-md: 767px; // タブレット
+$max-sm: 480px; // スマホ
+$min-lg: 1201px; // PC
+$min-md: 768px; // タブレット
+$min-sm: 481px; // スマホ
+
+@mixin column4 {
+    max-width: 220px;
+    width: 24%;
+    margin-bottom: 2%;
+}
+@mixin column3 {
+    max-width: 300px;
+    width: 32%;
+    margin-bottom: 2%;
+}
+@mixin column2 {
+    max-width: 460px;
+    width: 49%;
+    margin-bottom: 2%;
+}
+@mixin column1 {
+    max-width: 940px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+@mixin flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.flex-row {
+    @include flex-row;
+}
+
+.column4-4 {
+    @include flex-row;
+    > * {
+        @include column4;
+    }
+}
+.column4-3 {
+    @include flex-row;
+    > * {
+        @include column4;
+        @media screen and (max-width: $max-lg) {
+            @include column3;
+        }
+    }
+}
+.column4-2 {
+    @include flex-row;
+    > * {
+        @include column4;
+        @media screen and (max-width: $max-md) {
+            @include column2;
+        }
+    }
+}
+.column4-1 {
+    @include flex-row;
+    > * {
+        @include column4;
+        @media screen and (max-width: $max-md) {
+            @include column1;
+        }
+    }
+}
+.column3-3 {
+    @include flex-row;
+    > * {
+        @include column3;
+    }
+}
+.column3-2 {
+    @include flex-row;
+    > * {
+        @include column3;
+        @media screen and (max-width: $max-md) {
+            @include column2;
+        }
+    }
+}
+.column3-1 {
+    @include flex-row;
+    > * {
+        @include column3;
+        @media screen and (max-width: $max-md) {
+            @include column1;
+        }
+    }
+}
+.column2-2 {
+    @include flex-row;
+    > * {
+        @include column2;
+    }
+}
+.column2-1 {
+    @include flex-row;
+    > * {
+        @include column2;
+        @media screen and (max-width: $max-md) {
+            @include column1;
+        }
+    }
+}

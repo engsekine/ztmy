@@ -1,0 +1,17 @@
+html,
+body,
+section,
+nav,
+header,
+footer,
+main,
+div {
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 0;
+}
+img {
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+}
