@@ -1,24 +1,24 @@
-const gulp = require("gulp"); //gulp本体
+const gulp = require('gulp') //gulp本体
 
 //scss
-const sass = require("gulp-dart-sass"); //Dart Sass はSass公式が推奨 @use構文などが使える
-const plumber = require("gulp-plumber"); // エラーが発生しても強制終了させない
-const notify = require("gulp-notify"); // エラー発生時のアラート出力
-const browserSync = require("browser-sync"); //ブラウザリロード
+const sass = require('gulp-dart-sass') //Dart Sass はSass公式が推奨 @use構文などが使える
+const plumber = require('gulp-plumber') // エラーが発生しても強制終了させない
+const notify = require('gulp-notify') // エラー発生時のアラート出力
+const browserSync = require('browser-sync') //ブラウザリロード
 
 // 入出力するフォルダを指定
-const srcBase = "src";
-const distBase = "dist";
+const srcBase = 'src'
+const distBase = 'dist'
 
 const srcPath = {
-  scss: "scss/**/*.scss",
-  html: srcBase + "/**/*.html",
-};
+  scss: 'scss/**/*.scss',
+  html: srcBase + '/**/*.html'
+}
 
 const distPath = {
-  css: distBase + "/css/",
-  html: distBase + "/",
-};
+  css: distBase + '/css/',
+  html: distBase + '/'
+}
 
 /**
  * sass
@@ -27,50 +27,50 @@ const distPath = {
 const cssSass = () => {
   return gulp
     .src(srcPath.scss, {
-      sourcemaps: true,
+      sourcemaps: true
     })
     .pipe(
       //エラーが出ても処理を止めない
       plumber({
-        errorHandler: notify.onError("Error:<%= error.message %>"),
+        errorHandler: notify.onError('Error:<%= error.message %>')
       })
     )
-    .pipe(sass({ outputStyle: "expanded" })) //指定できるキー expanded compressed
-    .pipe(gulp.dest(distPath.css, { sourcemaps: "./" })) //コンパイル先
+    .pipe(sass({ outputStyle: 'expanded' })) //指定できるキー expanded compressed
+    .pipe(gulp.dest(distPath.css, { sourcemaps: './' })) //コンパイル先
     .pipe(browserSync.stream())
     .pipe(
       notify({
-        message: "Sassをコンパイルしました！",
-        onLast: true,
+        message: 'Sassをコンパイルしました！',
+        onLast: true
       })
-    );
-};
+    )
+}
 
 /**
  * html
  */
 const html = () => {
-  return gulp.src(srcPath.html).pipe(gulp.dest(distPath.html));
-};
+  return gulp.src(srcPath.html).pipe(gulp.dest(distPath.html))
+}
 
 /**
  * ローカルサーバー立ち上げ
  */
 const browserSyncFunc = () => {
-  browserSync.init(browserSyncOption);
-};
+  browserSync.init(browserSyncOption)
+}
 
 const browserSyncOption = {
-  server: distBase,
-};
+  server: distBase
+}
 
 /**
  * リロード
  */
 const browserSyncReload = (done) => {
-  browserSync.reload();
-  done();
-};
+  browserSync.reload()
+  done()
+}
 
 /**
  *
@@ -79,15 +79,12 @@ const browserSyncReload = (done) => {
  * watch('監視するファイル',処理)
  */
 const watchFiles = () => {
-  gulp.watch(srcPath.scss, gulp.series(cssSass));
-  gulp.watch(srcPath.html, gulp.series(html, browserSyncReload));
-};
+  gulp.watch(srcPath.scss, gulp.series(cssSass))
+  gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
+}
 
 /**
  * seriesは「順番」に実行
  * parallelは並列で実行
  */
-exports.default = gulp.series(
-  gulp.parallel(html, cssSass),
-  gulp.parallel(watchFiles, browserSyncFunc)
-);
+exports.default = gulp.series(gulp.parallel(html, cssSass), gulp.parallel(watchFiles, browserSyncFunc))

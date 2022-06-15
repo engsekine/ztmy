@@ -16,10 +16,5 @@
     "node": "16.15.1",
     "yarn": "1.22.19"
   },
-  "devDependencies": {
-    "eslint-config-google": "^0.14.0",
-    "prettier": "^2.7.0",
-    "prettier-eslint": "^15.0.1",
-    "prettier-eslint-cli": "^6.0.1"
-  }
+  "devDependencies": {}
 }
