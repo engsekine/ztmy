@@ -1,11 +1,5 @@
 @charset "utf-8";
-//ブレイクポイント設定
-$max-lg: 1200px; // PC
-$max-md: 767px; // タブレット
-$max-sm: 480px; // スマホ
-$min-lg: 1201px; // PC
-$min-md: 768px; // タブレット
-$min-sm: 481px; // スマホ
+@use './modules/argument';
 
 @mixin column4 {
     max-width: 220px;
@@ -48,7 +42,7 @@ $min-sm: 481px; // スマホ
     @include flex-row;
     > * {
         @include column4;
-        @media screen and (max-width: $max-lg) {
+        @media screen and (max-width: argument.$max-lg) {
             @include column3;
         }
     }
@@ -57,7 +51,7 @@ $min-sm: 481px; // スマホ
     @include flex-row;
     > * {
         @include column4;
-        @media screen and (max-width: $max-md) {
+        @media screen and (max-width: argument.$max-md) {
             @include column2;
         }
     }
@@ -66,7 +60,7 @@ $min-sm: 481px; // スマホ
     @include flex-row;
     > * {
         @include column4;
-        @media screen and (max-width: $max-md) {
+        @media screen and (max-width: argument.$max-md) {
             @include column1;
         }
     }
@@ -81,7 +75,7 @@ $min-sm: 481px; // スマホ
     @include flex-row;
     > * {
         @include column3;
-        @media screen and (max-width: $max-md) {
+        @media screen and (max-width: argument.$max-md) {
             @include column2;
         }
     }
@@ -90,7 +84,7 @@ $min-sm: 481px; // スマホ
     @include flex-row;
     > * {
         @include column3;
-        @media screen and (max-width: $max-md) {
+        @media screen and (max-width: argument.$max-md) {
             @include column1;
         }
     }
@@ -105,7 +99,7 @@ $min-sm: 481px; // スマホ
     @include flex-row;
     > * {
         @include column2;
-        @media screen and (max-width: $max-md) {
+        @media screen and (max-width: argument.$max-md) {
             @include column1;
         }
     }

@@ -11,13 +11,13 @@ const srcBase = 'src'
 const distBase = 'dist'
 
 const srcPath = {
-  scss: 'scss/**/*.scss',
-  html: srcBase + '/**/*.html'
+    scss: 'scss/**/*.scss',
+    html: srcBase + '/**/*.html'
 }
 
 const distPath = {
-  css: distBase + '/css/',
-  html: distBase + '/'
+    css: distBase + '/css/',
+    html: distBase + '/'
 }
 
 /**
@@ -25,51 +25,51 @@ const distPath = {
  *
  */
 const cssSass = () => {
-  return gulp
-    .src(srcPath.scss, {
-      sourcemaps: true
-    })
-    .pipe(
-      //エラーが出ても処理を止めない
-      plumber({
-        errorHandler: notify.onError('Error:<%= error.message %>')
-      })
-    )
-    .pipe(sass({ outputStyle: 'expanded' })) //指定できるキー expanded compressed
-    .pipe(gulp.dest(distPath.css, { sourcemaps: './' })) //コンパイル先
-    .pipe(browserSync.stream())
-    .pipe(
-      notify({
-        message: 'Sassをコンパイルしました！',
-        onLast: true
-      })
-    )
+    return gulp
+        .src(srcPath.scss, {
+            sourcemaps: true
+        })
+        .pipe(
+            //エラーが出ても処理を止めない
+            plumber({
+                errorHandler: notify.onError('Error:<%= error.message %>')
+            })
+        )
+        .pipe(sass({ outputStyle: 'expanded' })) //指定できるキー expanded compressed
+        .pipe(gulp.dest(distPath.css, { sourcemaps: './' })) //コンパイル先
+        .pipe(browserSync.stream())
+        .pipe(
+            notify({
+                message: 'Sassをコンパイルしました！',
+                onLast: true
+            })
+        )
 }
 
 /**
  * html
  */
 const html = () => {
-  return gulp.src(srcPath.html).pipe(gulp.dest(distPath.html))
+    return gulp.src(srcPath.html).pipe(gulp.dest(distPath.html))
 }
 
 /**
  * ローカルサーバー立ち上げ
  */
 const browserSyncFunc = () => {
-  browserSync.init(browserSyncOption)
+    browserSync.init(browserSyncOption)
 }
 
 const browserSyncOption = {
-  server: distBase
+    server: distBase
 }
 
 /**
  * リロード
  */
 const browserSyncReload = (done) => {
-  browserSync.reload()
-  done()
+    browserSync.reload()
+    done()
 }
 
 /**
@@ -79,8 +79,8 @@ const browserSyncReload = (done) => {
  * watch('監視するファイル',処理)
  */
 const watchFiles = () => {
-  gulp.watch(srcPath.scss, gulp.series(cssSass))
-  gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
+    gulp.watch(srcPath.scss, gulp.series(cssSass))
+    gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
 }
 
 /**
