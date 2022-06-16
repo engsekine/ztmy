@@ -13,8 +13,8 @@ const distBase = 'dist'
 
 const srcPath = {
     html: srcBase + '/**/*.html',
-    scss: 'scss/**/*.scss',
-    js: 'js/**/*.js'
+    scss: srcBase + '/scss/**/*.scss',
+    js: srcBase + '/js/*.js'
 }
 
 const distPath = {
@@ -52,7 +52,7 @@ const cssSass = () => {
 /*js*/
 const javascript = () => {
     return gulp
-        .src('./src/js/**/*.js')
+        .src(['./src/js/test.js', './src/js/script.js'])
         .pipe(concat('project.js')) //project.jsに他のjsファイルをconcat
         .pipe(uglify()) //minify
         .pipe(
@@ -91,7 +91,7 @@ const browserSyncReload = (done) => {
 const watchFiles = () => {
     gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
     gulp.watch(srcPath.scss, gulp.series(cssSass))
-    gulp.watch(srcPath.js, gulp.series(javascript))
+    gulp.watch(srcPath.js, gulp.series(javascript, browserSyncReload))
 }
 
 /**
