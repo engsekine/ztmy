@@ -1,29 +1,31 @@
 const gulp = require('gulp') //gulp本体
-
-//scss
 const sass = require('gulp-dart-sass') //Dart Sass はSass公式が推奨 @use構文などが使える
 const plumber = require('gulp-plumber') // エラーが発生しても強制終了させない
 const notify = require('gulp-notify') // エラー発生時のアラート出力
 const browserSync = require('browser-sync') //ブラウザリロード
+const rename = require('gulp-rename')
+const uglify = require('gulp-uglify')
+const concat = require('gulp-concat')
 
 // 入出力するフォルダを指定
 const srcBase = 'src'
 const distBase = 'dist'
 
 const srcPath = {
-    scss: 'scss/**/*.scss',
-    html: srcBase + '/**/*.html'
+    html: srcBase + '/**/*.html',
+    scss: 'scss/**/*.scss'
 }
 
 const distPath = {
-    css: distBase + '/css/',
-    html: distBase + '/'
+    html: distBase + '/',
+    css: distBase + '/css/'
 }
 
-/**
- * sass
- *
- */
+/*html*/
+const html = () => {
+    return gulp.src(srcPath.html).pipe(gulp.dest(distPath.html))
+}
+/*sass*/
 const cssSass = () => {
     return gulp
         .src(srcPath.scss, {
@@ -46,12 +48,19 @@ const cssSass = () => {
         )
 }
 
-/**
- * html
- */
-const html = () => {
-    return gulp.src(srcPath.html).pipe(gulp.dest(distPath.html))
-}
+/*js*/
+gulp.task('javascript', function () {
+    return gulp
+        .src('./src/js/**/*.js')
+        .pipe(concat('project.js')) //project.jsに他のjsファイルをconcat
+        .pipe(uglify()) //minify
+        .pipe(
+            rename({
+                suffix: '.min'
+            })
+        )
+        .pipe(gulp.dest('./dist/js'))
+})
 
 /**
  * ローカルサーバー立ち上げ

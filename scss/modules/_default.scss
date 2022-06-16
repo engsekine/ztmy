@@ -4,17 +4,30 @@
 html,
 body,
 section,
-nav,
-header,
-footer,
-main,
+main {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
 div {
     box-sizing: border-box;
     margin: 0;
     line-height: 0;
 }
+
 img {
     margin: 0 auto;
     max-width: 100%;
     max-height: 100%;
+}
+
+a {
+    transition: ease 0.4s;
+    text-decoration: none;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+li {
+    list-style: none;
 }
