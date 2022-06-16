@@ -13,12 +13,14 @@ const distBase = 'dist'
 
 const srcPath = {
     html: srcBase + '/**/*.html',
-    scss: 'scss/**/*.scss'
+    scss: 'scss/**/*.scss',
+    js: 'js/**/*.js'
 }
 
 const distPath = {
     html: distBase + '/',
-    css: distBase + '/css/'
+    css: distBase + '/css/',
+    js: distBase + '/js/'
 }
 
 /*html*/
@@ -47,9 +49,8 @@ const cssSass = () => {
             })
         )
 }
-
 /*js*/
-gulp.task('javascript', function () {
+const javascript = () => {
     return gulp
         .src('./src/js/**/*.js')
         .pipe(concat('project.js')) //project.jsに他のjsファイルをconcat
@@ -60,7 +61,7 @@ gulp.task('javascript', function () {
             })
         )
         .pipe(gulp.dest('./dist/js'))
-})
+}
 
 /**
  * ローカルサーバー立ち上げ
@@ -88,12 +89,13 @@ const browserSyncReload = (done) => {
  * watch('監視するファイル',処理)
  */
 const watchFiles = () => {
-    gulp.watch(srcPath.scss, gulp.series(cssSass))
     gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
+    gulp.watch(srcPath.scss, gulp.series(cssSass))
+    gulp.watch(srcPath.js, gulp.series(javascript))
 }
 
 /**
  * seriesは「順番」に実行
  * parallelは並列で実行
  */
-exports.default = gulp.series(gulp.parallel(html, cssSass), gulp.parallel(watchFiles, browserSyncFunc))
+exports.default = gulp.series(gulp.parallel(html, cssSass, javascript), gulp.parallel(watchFiles, browserSyncFunc))
