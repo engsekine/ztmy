@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use './modules/argument';
+@use './modules/variables'; //関数
 @use './modules/default';
 @use './modules/layout';
 @use './modules/parts';
@@ -32,4 +32,26 @@ body {
 }
 
 #footer {
+}
+
+@mixin responsive($propertyName, $defaultValue, $mediaQueries: ()) {
+    #{$propertyName}: #{$defaultValue};
+
+    @each $breakpoint, $value in $mediaQueries {
+        @media (min-width: #{$breakpoint}) {
+            #{$propertyName}: #{$value};
+        }
+    }
+}
+
+a {
+    @include responsive(
+        font-size,
+        20px,
+        (
+            variables.$max-lg: 30px,
+            variables.$max-md: 20px,
+            variables.$max-sm: 10px
+        )
+    );
 }

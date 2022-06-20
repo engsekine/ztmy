@@ -1,5 +1,5 @@
 @charset "utf-8";
-@use './modules/argument';
+@use './modules/variables';
 
 html,
 body,
@@ -23,6 +23,7 @@ img {
 a {
     transition: ease 0.4s;
     text-decoration: none;
+
     &:hover {
         opacity: 0.7;
     }
@@ -30,4 +31,17 @@ a {
 
 li {
     list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li {
+    color: variables.$font-color;
+    line-height: 1.5em;
 }

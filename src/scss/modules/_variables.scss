@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+$lg: 1200;
+$md: 767;
+$sm: 480;
+
+$max-lg: unquote($lg + 'px');
+$max-md: unquote($md + 'px');
+$max-sm: unquote($sm + 'px');
+
+$main-color: #fff;
+$sub-color: #fff;
+$accent-color: #fff;
+$font-color: #000;
+
+$font-lg: 4rem;
+$font-md: 3rem;
+$font-sm: 2rem;
+
+// breakpointの設定
+$mq-breakpoints: (
+    lg: $max-lg,
+    md: $max-md,
+    sm: $max-sm
+) !default;
+
+// breakpoint
+@mixin mq($breakpoint: md, $rule: max, $subtraction: false) {
+    $breakpoint: map_get($mq-breakpoints, $breakpoint);
+
+    @if $rule==max and $subtraction {
+        $breakpoint: $breakpoint - 0.0625;
+    }
+
+    @media screen and (#{$rule}-width: $breakpoint) {
+        @content;
+    }
+}

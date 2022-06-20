@@ -1,5 +1,5 @@
 @charset "utf-8";
-@use './modules/argument';
+@use './modules/variables';
 
 @mixin column4 {
     max-width: 220px;
@@ -38,7 +38,7 @@
     @include flex-row;
     > * {
         @include column4;
-        @media screen and (max-width: argument.$max-lg) {
+        @include variables.mq(md) {
             @include column3;
         }
     }
@@ -47,7 +47,7 @@
     @include flex-row;
     > * {
         @include column4;
-        @media screen and (max-width: argument.$max-md) {
+        @include variables.mq(md) {
             @include column2;
         }
     }
@@ -56,7 +56,7 @@
     @include flex-row;
     > * {
         @include column4;
-        @media screen and (max-width: argument.$max-md) {
+        @include variables.mq(md) {
             @include column1;
         }
     }
@@ -71,7 +71,7 @@
     @include flex-row;
     > * {
         @include column3;
-        @media screen and (max-width: argument.$max-md) {
+        @include variables.mq(md) {
             @include column2;
         }
     }
@@ -80,7 +80,7 @@
     @include flex-row;
     > * {
         @include column3;
-        @media screen and (max-width: argument.$max-md) {
+        @include variables.mq(md) {
             @include column1;
         }
     }
@@ -95,24 +95,24 @@
     @include flex-row;
     > * {
         @include column2;
-        @media screen and (max-width: argument.$max-md) {
+        @include variables.mq(md) {
             @include column1;
         }
     }
 }
 
 .inner {
-    max-width: argument.$max-lg;
+    max-width: variables.$max-lg;
     padding: 0 20px;
     box-sizing: border-box;
     margin: 0 auto;
-    @media screen and (max-width: argument.$max-lg) {
+    @include variables.mq(lg) {
         padding: 0 2%;
     }
-    @media screen and (max-width: argument.$max-md) {
+    @include variables.mq(md) {
         padding: 0 4%;
     }
-    @media screen and (max-width: argument.$max-sm) {
+    @include variables.mq(sm) {
         padding: 0 4%;
     }
 }
