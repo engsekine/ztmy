@@ -1,3 +1,18 @@
 https://miya-system-works.com/blog/detail/177
 
 https://tips-web.net/gulp4-mac/
+
+
+//scss 6/20 関数　引数
+https://prograshi.com/design/css/variables-in-sass/
+
+//scss 6/20 media quiry
+https://zenn.dev/ptduyen/articles/2ae777c3f3f30e
+
+
+//scss 6/20 vw
+https://webdou.net/sass-vw/
+
+
+//scss 6/20 引用文""
+https://maku77.github.io/sass/string.html
