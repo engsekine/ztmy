@@ -24,6 +24,23 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+.inner {
+    max-width: variables.$max-lg;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    @include variables.mq(lg) {
+        padding: 0 2%;
+    }
+    @include variables.mq(md) {
+        padding: 0 4%;
+    }
+    @include variables.mq(sm) {
+        padding: 0 4%;
+    }
+}
+
 .flex-row {
     @include flex-row;
 }
@@ -98,21 +115,5 @@
         @include variables.mq(md) {
             @include column1;
         }
-    }
-}
-
-.inner {
-    max-width: variables.$max-lg;
-    padding: 0 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    @include variables.mq(lg) {
-        padding: 0 2%;
-    }
-    @include variables.mq(md) {
-        padding: 0 4%;
-    }
-    @include variables.mq(sm) {
-        padding: 0 4%;
     }
 }

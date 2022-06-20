@@ -1,22 +1,58 @@
 @charset "utf-8";
 
-$lg: 1200;
-$md: 767;
-$sm: 480;
-
-$max-lg: unquote($lg + 'px');
-$max-md: unquote($md + 'px');
-$max-sm: unquote($sm + 'px');
-
 $main-color: #fff;
 $sub-color: #fff;
 $accent-color: #fff;
 $font-color: #000;
+$bg-color: #fff;
+
+$lg: 1200;
+$md: 767;
+$sm: 480;
+
+$font-h1: 4rem;
+$font-h1-lg: 4rem;
+$font-h1-md: 3rem;
+$font-h1-sm: 2rem;
+
+$font-h2: 2.6rem;
+$font-h2-lg: 2.4rem;
+$font-h2-md: 2.2rem;
+$font-h2-sm: 1.8rem;
+
+$font-h3: 2rem;
+$font-h3-lg: 1.8rem;
+$font-h3-md: 1.6rem;
+$font-h3-sm: 1.4rem;
+
+$font-h4: 2rem;
+$font-h4-lg: 1.8rem;
+$font-h4-md: 1.6rem;
+$font-h4-sm: 1.4rem;
+
+$font-h5: 2rem;
+$font-h5-lg: 1.8rem;
+$font-h5-md: 1.6rem;
+$font-h5-sm: 1.4rem;
 
 $font-lg: 4rem;
-$font-md: 3rem;
-$font-sm: 2rem;
+$font-lg-lg: 4rem;
+$font-lg-md: 3rem;
+$font-lg-sm: 2rem;
 
+$font-md: 2.6rem;
+$font-md-lg: 2.4rem;
+$font-md-md: 2.2rem;
+$font-md-sm: 1.8rem;
+
+$font-sm: 2rem;
+$font-sm-lg: 1.8rem;
+$font-sm-md: 1.6rem;
+$font-sm-sm: 1.4rem;
+
+$max-lg: unquote($lg + 'px');
+$max-md: unquote($md + 'px');
+$max-sm: unquote($sm + 'px');
 // breakpointの設定
 $mq-breakpoints: (
     lg: $max-lg,
@@ -35,4 +71,74 @@ $mq-breakpoints: (
     @media screen and (#{$rule}-width: $breakpoint) {
         @content;
     }
+}
+
+@mixin responsive($propertyName, $defaultValue, $mediaQueries: ()) {
+    #{$propertyName}: #{$defaultValue};
+
+    @each $breakpoint, $value in $mediaQueries {
+        @media (max-width: #{$breakpoint}) {
+            #{$propertyName}: #{$value};
+        }
+    }
+}
+
+@mixin h1 {
+    @include responsive(
+        font-size,
+        $font-h1,
+        (
+            $max-lg: $font-h1-lg,
+            $max-md: $font-h1-md,
+            $max-sm: $font-h1-sm
+        )
+    );
+}
+
+@mixin h2 {
+    @include responsive(
+        font-size,
+        $font-h2,
+        (
+            $max-lg: $font-h2-lg,
+            $max-md: $font-h2-md,
+            $max-sm: $font-h2-sm
+        )
+    );
+}
+
+@mixin h3 {
+    @include responsive(
+        font-size,
+        $font-h3,
+        (
+            $max-lg: $font-h3-lg,
+            $max-md: $font-h3-md,
+            $max-sm: $font-h3-sm
+        )
+    );
+}
+
+@mixin h4 {
+    @include responsive(
+        font-size,
+        $font-h4,
+        (
+            $max-lg: $font-h4-lg,
+            $max-md: $font-h4-md,
+            $max-sm: $font-h4-sm
+        )
+    );
+}
+
+@mixin h5 {
+    @include responsive(
+        font-size,
+        $font-h5,
+        (
+            $max-lg: $font-h5-lg,
+            $max-md: $font-h5-md,
+            $max-sm: $font-h5-sm
+        )
+    );
 }
