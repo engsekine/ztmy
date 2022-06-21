@@ -35,6 +35,16 @@ $font-h5-lg: 1.8rem;
 $font-h5-md: 1.6rem;
 $font-h5-sm: 1.4rem;
 
+$font-h6: 2rem;
+$font-h6-lg: 1.8rem;
+$font-h6-md: 1.6rem;
+$font-h6-sm: 1.4rem;
+
+$font-p: 2rem;
+$font-p-lg: 1.8rem;
+$font-p-md: 1.6rem;
+$font-p-sm: 1.4rem;
+
 $font-lg: 4rem;
 $font-lg-lg: 4rem;
 $font-lg-md: 3rem;
@@ -139,6 +149,30 @@ $mq-breakpoints: (
             $max-lg: $font-h5-lg,
             $max-md: $font-h5-md,
             $max-sm: $font-h5-sm
+        )
+    );
+}
+
+@mixin h6 {
+    @include responsive(
+        font-size,
+        $font-h6,
+        (
+            $max-lg: $font-h6-lg,
+            $max-md: $font-h6-md,
+            $max-sm: $font-h6-sm
+        )
+    );
+}
+
+@mixin p {
+    @include responsive(
+        font-size,
+        $font-p,
+        (
+            $max-lg: $font-p-lg,
+            $max-md: $font-p-md,
+            $max-sm: $font-p-sm
         )
     );
 }

@@ -6,3 +6,199 @@
     align-items: center;
     justify-content: center;
 }
+
+.icon-img {
+    position: relative;
+    padding-left: 2em;
+    @include variables.mq(lg) {
+    }
+    &::before {
+        content: '';
+        background-image: url('https://raw.githubusercontent.com/engsekine/ztmy/main/img/dummy.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        @include variables.mq(lg) {
+        }
+    }
+}
+
+.icon-img {
+    position: relative;
+    padding-left: 2em;
+    @include variables.mq(lg) {
+    }
+    &::before {
+        content: '';
+        background-image: url('https://raw.githubusercontent.com/engsekine/ztmy/main/img/dummy.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        @include variables.mq(lg) {
+        }
+    }
+}
+.icon-square {
+    position: relative;
+    padding-left: 2em;
+    @include variables.mq(lg) {
+    }
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        @include variables.mq(lg) {
+        }
+    }
+}
+
+.icon-number {
+    position: relative;
+    padding-left: 2em;
+    @include variables.mq(lg) {
+    }
+    &::before {
+        content: '1';
+        font-size: 1.6rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        width: 20px;
+        text-align: center;
+        @include variables.mq(lg) {
+        }
+    }
+}
+
+.dashed-top {
+    position: relative;
+    padding-top: 1em;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(to right, #000, #000 2px, transparent 2px, transparent 8px);
+        background-size: 5px 1px;
+        background-position: left bottom;
+        background-repeat: repeat-x;
+    }
+}
+
+.dashed-bottom {
+    position: relative;
+    padding-bottom: 1em;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(to right, #000, #000 2px, transparent 2px, transparent 8px);
+        background-size: 5px 1px;
+        background-position: left bottom;
+        background-repeat: repeat-x;
+    }
+}
+
+.line-top {
+    position: relative;
+    padding-top: 1em;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 100px;
+        height: 1px;
+        background: #000;
+    }
+}
+
+.line-bottom {
+    position: relative;
+    padding-bottom: 1em;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 100px;
+        height: 1px;
+        background: #000;
+    }
+}
+
+.tri {
+    position: relative;
+    padding-bottom: 70px;
+    @include variables.mq(lg) {
+        padding-bottom: calc(30px + 4%);
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-style: solid;
+        border-width: 25px 25px 0 25px;
+        border-color: #093385 transparent transparent transparent;
+        @include variables.mq(lg) {
+            bottom: 2%;
+        }
+    }
+}
+
+.bg-wide {
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-diagonal {
+    background-color: #aec0d7;
+    background-image: repeating-linear-gradient(-45deg, #becddf, #becddf 7px, transparent 0, transparent 14px);
+}
+
+.bg-dotted {
+    background-color: #f8f8f8;
+    background-image: radial-gradient(#c8c8c8 10%, transparent 10%);
+    background-size: 10px 10px;
+}

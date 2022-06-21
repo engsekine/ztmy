@@ -7,6 +7,10 @@ section,
 main {
     box-sizing: border-box;
     margin: 0 auto;
+    font-size: 62.5%;
+}
+section {
+    overflow-x: hidden;
 }
 div {
     box-sizing: border-box;
@@ -42,6 +46,152 @@ h6,
 p,
 a,
 li {
-    color: variables.$font-color;
     line-height: 1.5em;
+    margin: auto;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.mt-10 {
+    margin-top: 10px;
+    @include variables.mq(lg) {
+        margin-top: 1%;
+    }
+}
+
+.mt-20 {
+    margin-top: 20px;
+    @include variables.mq(lg) {
+        margin-top: 2%;
+    }
+}
+
+.mt-30 {
+    margin-top: 30px;
+    @include variables.mq(lg) {
+        margin-top: 3%;
+    }
+}
+
+.mt-40 {
+    margin-top: 40px;
+    @include variables.mq(lg) {
+        margin-top: 4%;
+    }
+}
+
+.mt-50 {
+    margin-top: 50px;
+    @include variables.mq(lg) {
+        margin-top: 5%;
+    }
+}
+
+.mt-60 {
+    margin-top: 60px;
+    @include variables.mq(lg) {
+        margin-top: 6%;
+    }
+}
+
+.mt-70 {
+    margin-top: 70px;
+    @include variables.mq(lg) {
+        margin-top: 7%;
+    }
+}
+
+.mt-80 {
+    margin-top: 80px;
+    @include variables.mq(lg) {
+        margin-top: 8%;
+    }
+}
+
+.mt-90 {
+    margin-top: 90px;
+    @include variables.mq(lg) {
+        margin-top: 9%;
+    }
+}
+
+.mt-100 {
+    margin-top: 100px;
+    @include variables.mq(lg) {
+        margin-top: 10%;
+    }
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+    @include variables.mq(lg) {
+        margin-bottom: 1%;
+    }
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+    @include variables.mq(lg) {
+        margin-bottom: 2%;
+    }
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+    @include variables.mq(lg) {
+        margin-bottom: 3%;
+    }
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+    @include variables.mq(lg) {
+        margin-bottom: 4%;
+    }
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+    @include variables.mq(lg) {
+        margin-bottom: 5%;
+    }
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+    @include variables.mq(lg) {
+        margin-bottom: 6%;
+    }
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+    @include variables.mq(lg) {
+        margin-bottom: 7%;
+    }
+}
+
+.mb-80 {
+    margin-bottom: 80px;
+    @include variables.mq(lg) {
+        margin-bottom: 8%;
+    }
+}
+
+.mb-90 {
+    margin-bottom: 90px;
+    @include variables.mq(lg) {
+        margin-bottom: 9%;
+    }
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+    @include variables.mq(lg) {
+        margin-bottom: 10%;
+    }
 }

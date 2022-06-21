@@ -35,25 +35,49 @@ body {
 
 h1 {
     @include variables.h1;
+    color: variables.$font-color;
     font-weight: bold;
 }
 
 h2 {
     @include variables.h2;
+    color: variables.$font-color;
     font-weight: bold;
 }
 
 h3 {
     @include variables.h3;
+    color: variables.$font-color;
     font-weight: bold;
 }
 
 h4 {
     @include variables.h4;
+    color: variables.$font-color;
     font-weight: bold;
 }
 
 h5 {
     @include variables.h5;
+    color: variables.$font-color;
     font-weight: bold;
+}
+
+h6 {
+    @include variables.h6;
+    color: variables.$font-color;
+    font-weight: bold;
+}
+
+p,
+span,
+li,
+strong {
+    @include variables.p;
+    color: variables.$font-color;
+    font-weight: bold;
+}
+
+strong {
+    background: linear-gradient(transparent 60%, #ffff00 60%);
 }
