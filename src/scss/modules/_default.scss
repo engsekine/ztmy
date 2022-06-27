@@ -56,6 +56,27 @@ li {
     clear: both;
 }
 
+.lg {
+    display: none;
+    @include variables.mq(lg) {
+        display: none;
+    }
+}
+
+.md {
+    display: none;
+    @include variables.mq(md) {
+        display: none;
+    }
+}
+
+.sm {
+    display: none;
+    @include variables.mq(sm) {
+        display: block;
+    }
+}
+
 .mt-10 {
     margin-top: 10px;
     @include variables.mq(lg) {
